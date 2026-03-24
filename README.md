@@ -18,24 +18,46 @@ The package ecosystem (PyPI, NPM, Cargo) is under constant attack from *Typosqua
 
 ---
 
-## 🚀 How to Use (CLI)
+## 🛠️ Getting Started
+
+To use **SafeDep** locally, clone the repository and install it in editable mode:
 
 ```bash
-# Analyze a package before installing
-safedep check requests
+# create a virtual environment
+python3 -m venv venv
+source venv/bin/activate
 
-# Analyze your entire project
-safedep scan .
+# Install dependencies
+pip install -r requirements.txt
+
+# Install SafeDep in editable mode
+pip install -e .
+```
+
+## 🚀 How to Use (CLI)
+
+SafeDep provides two main commands:
+
+### 1. Check a package before installing
+Analyzes a package from PyPI for typosquatting and reputation risks.
+```bash
+safedep check <package_name>
+```
+
+### 2. Scan a local directory
+Scans Python files for dangerous code patterns (e.g., `eval`, `os.system`).
+```bash
+safedep scan <path_to_directory>
 ```
 
 ---
 
 ## 🗺️ Development Roadmap
 
-### Phase 1: Foundation (MVP) - "The Scanner" 🏗️
-Implementation of name similarity analysis (Anti-Typosquatting).
-Reputation verification (package creation date, popularity, author history).
-Static code scanner to find dangerous functions (eval(), os.system(), requests.post() in setup scripts).
+### Phase 1: Foundation (MVP) - "The Scanner" ✅ (Implemented)
+- ✅ Implementation of name similarity analysis (Anti-Typosquatting).
+- ✅ Reputation verification (package creation date, author history).
+- ✅ Static code scanner for dangerous functions.
 
 ### Phase 2: Intelligence (Beta) - "The Behavioralist" 🧠
 Sandboxing: Integration with Docker/Podman to run setup.py and monitor system calls (syscalls).

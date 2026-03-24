@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "safedep"
+version = "0.1.0"
+authors = [
+  { name="Marcio Reck", email="marcio@fazmercado.com" },
+]
+description = "Protect your dependencies from supply chain attacks."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests",
+    "click",
+    "rich",
+]
+
+[project.scripts]
+safedep = "safedep.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
