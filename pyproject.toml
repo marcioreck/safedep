@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "safedep"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
-  { name="Marcio Reck", email="marcio@fazmercado.com" },
+  { name="Márcio Reck", email="marcio@fazmercado.com" },
 ]
 description = "Protect your dependencies from supply chain attacks."
 readme = "README.md"
