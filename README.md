@@ -122,5 +122,5 @@ This project is 100% free and community-focused.
 If you believe in a safer software ecosystem, consider becoming a contributor or sponsor.
 Give a ⭐ on GitHub
 Report Bugs
-Become a Sponsor: [GitHub Sponsors](https://github.com/sponsors/marcioreck) / [OpenCollective](https://opencollective.com/marcioreck)
+Become a Sponsor: [GitHub Sponsors](https://github.com/sponsors/marcioreck) / [OpenCollective](https://opencollective.com/marcio-reck)
 Developed for those who prioritize security.
