@@ -1,0 +1,6 @@
+# SafeDep Python Typosquatting Example
+requests==2.31.0
+requesst==1.0.0
+flask==3.0.0
+numpy>=1.26.0
+numphy==1.0.0

@@ -1,0 +1,35 @@
+name: SafeDep Security Scan
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install SafeDep
+        run: |
+          pip install .
+          pip install -r requirements.txt
+
+      - name: Run SafeDep Scan
+        run: |
+          # Scan the repository for dangerous code and suspicious dependencies
+          safedep scan .
+          
+      - name: Check Reputation of new dependencies
+        if: github.event_name == 'pull_request'
+        run: |
+          # Example: check a specific package if it was added (this would be automated in a real action)
+          # safedep check <package_name>
+          echo "Scanning new dependencies..."

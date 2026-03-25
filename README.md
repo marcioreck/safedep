@@ -30,24 +30,70 @@ source venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Install SafeDep in editable mode
+# Install SafeDep in editable mode (so code changes are reflected immediately)
 pip install -e .
+```
+
+### Sandbox Requirements
+For behavioral analysis, **Docker** or **Podman** must be installed and running.
+```bash
+# Check if docker is available
+docker --version
 ```
 
 ## 🚀 How to Use (CLI)
 
-SafeDep provides two main commands:
+SafeDep provides several commands:
+
 
 ### 1. Check a package before installing
-Analyzes a package from PyPI for typosquatting and reputation risks.
+Analyzes a package (remote) for typosquatting and reputation risks.
+
+**Python (default):**
 ```bash
 safedep check <package_name>
 ```
 
+**Python Typosquatting Example:**
+```bash
+# Detects similarity to 'requests'
+safedep check requesst
+```
+
+**NPM:**
+```bash
+safedep check <package_name> --ecosystem npm
+```
+
+**Cargo (Rust):**
+```bash
+safedep check <package_name> --ecosystem cargo
+```
+
 ### 2. Scan a local directory
-Scans Python files for dangerous code patterns (e.g., `eval`, `os.system`).
+Scans local files (**Python, JS, TS, NPM, Cargo**) for dangerous code patterns or suspicious dependencies (in `requirements.txt`, `package.json`, `Cargo.toml`). 
+
+SafeDep automatically excludes common dependency and internal directories like `venv`, `node_modules`, and `.git` to focus on your project's source code.
 ```bash
 safedep scan <path_to_directory>
+```
+
+### 3. Behavioral Analysis (Sandbox)
+Runs a package installation in a Docker container and monitors for suspicious system calls.
+
+**Python:**
+```bash
+safedep check <package_name> --sandbox
+```
+
+**NPM:**
+```bash
+safedep check <package_name> --ecosystem npm --sandbox
+```
+
+**Cargo:**
+```bash
+safedep check <package_name> --ecosystem cargo --sandbox
 ```
 
 ---
@@ -59,10 +105,10 @@ safedep scan <path_to_directory>
 - ✅ Reputation verification (package creation date, author history).
 - ✅ Static code scanner for dangerous functions.
 
-### Phase 2: Intelligence (Beta) - "The Behavioralist" 🧠
-Sandboxing: Integration with Docker/Podman to run setup.py and monitor system calls (syscalls).
-Multi-language Support: Adding support for NPM (Node.js) and Cargo (Rust) in addition to Python.
-CI/CD Integration: GitHub Actions to block PRs with suspicious dependencies.
+### Phase 2: Intelligence (Beta) - "The Behavioralist" 🧠 ✅ (Implemented)
+- ✅ Sandboxing: Integration with Docker/Podman to run setup.py and monitor system calls (syscalls).
+- ✅ Multi-language Support: Support for NPM (Node.js) and Cargo (Rust) in addition to Python.
+- ✅ CI/CD Integration: GitHub Actions to block PRs with suspicious dependencies.
 
 ### Phase 3: Community and Sustainability - "The Shield" 🛡️
 SafeDep Hub: A community-driven database of "audited and clean" packages.

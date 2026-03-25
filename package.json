@@ -1,0 +1,15 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "**SafeDep** is an open-source tool designed to protect developers from Supply Chain Attacks. It analyzes packages and dependencies for malicious behavior, data exfiltration, and hidden vulnerabilities before you even install them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
