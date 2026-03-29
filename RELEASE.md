@@ -11,11 +11,16 @@ pip install build twine
 ```
 
 ### Build the Package
+Update the version in `pyproject.toml`:
+```toml
+version = "0.1.2" # Update to the new version
+```
+
 ```bash
 python3 -m build
 ```
 
-### Upload to PyPI
+### Upload to PyPI (Not Working manually!)
 ```bash
 # Upload to TestPyPI first (recommended)
 python3 -m twine upload --repository testpypi dist/*
@@ -33,13 +38,13 @@ SafeDep is configured to automatically publish to PyPI and create a GitHub Relea
 ### Triggering a Release
 1. Update the version in `pyproject.toml`:
    ```toml
-   version = "0.1.1" # Update to the new version
+   version = "0.1.2" # Update to the new version
    ```
 2. Commit and push the change.
 3. Create and push a new tag:
    ```bash
-   git tag v0.1.1
-   git push origin v0.1.1
+   git tag v0.1.2
+   git push origin v0.1.2
    ```
 
 ### Required GitHub Secrets

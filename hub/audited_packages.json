@@ -1,0 +1,39 @@
+{
+    "packages": [
+        {
+            "name": "requests",
+            "ecosystem": "python",
+            "status": "audited",
+            "last_audit": "2026-03-29",
+            "notes": "Verified clean. Popular and well-maintained."
+        },
+        {
+            "name": "click",
+            "ecosystem": "python",
+            "status": "audited",
+            "last_audit": "2026-03-29",
+            "notes": "Verified clean. CLI library."
+        },
+        {
+            "name": "rich",
+            "ecosystem": "python",
+            "status": "audited",
+            "last_audit": "2026-03-29",
+            "notes": "Verified clean. CLI formatting library."
+        },
+        {
+            "name": "express",
+            "ecosystem": "npm",
+            "status": "audited",
+            "last_audit": "2026-03-29",
+            "notes": "Verified clean. Base web framework for Node.js."
+        },
+        {
+            "name": "tokio",
+            "ecosystem": "cargo",
+            "status": "audited",
+            "last_audit": "2026-03-29",
+            "notes": "Verified clean. Async runtime for Rust."
+        }
+    ]
+}

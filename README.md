@@ -110,17 +110,37 @@ safedep check <package_name> --ecosystem cargo --sandbox
 - ✅ Multi-language Support: Support for NPM (Node.js) and Cargo (Rust) in addition to Python.
 - ✅ CI/CD Integration: GitHub Actions to block PRs with suspicious dependencies.
 
-### Phase 3: Community and Sustainability - "The Shield" 🛡️
-SafeDep Hub: A community-driven database of "audited and clean" packages.
-Security Badges: A system for repositories to display security trust seals.
-Sponsorship Program: Launching the Sponsors program to maintain the heavy analysis infrastructure.
+### Phase 3: Community and Sustainability - "The Shield" 🛡️  [/] (In Progress)
+- [x] **SafeDep Hub**: A community-driven database of "audited and clean" packages.
+- [x] **Security Badges**: A system for repositories to display security trust seals.
+- [/] **Sponsorship Program**: Launching the Sponsors program to maintain the heavy analysis infrastructure.
+
+---
+
+## 🛡️ The Shield: SafeDep Hub
+
+The **SafeDep Hub** is a crowdsourced database of packages that have been manually audited by the community and verified as safe. 
+
+### How it works:
+1. When you run `safedep check <package>`, the tool queries the Hub.
+2. If the package is found, you'll see the **SafeDep Shield** and a Markdown snippet to add a trust badge to your repo.
+3. Contributions are made via Pull Requests to the `hub/audited_packages.json` file.
+
+### Get your Security Badge
+If your package is audited, display your trust seal:
+`[![SafeDep Audited](https://img.shields.io/badge/SafeDep-Audited-green?logo=github)](https://github.com/marcioreck/safedep)`
 
 ---
 
 ## 🤝 Contribute & Sponsor
-This project is 100% free and community-focused.
-If you believe in a safer software ecosystem, consider becoming a contributor or sponsor.
-Give a ⭐ on GitHub
-Report Bugs
-Become a Sponsor: [GitHub Sponsors](https://github.com/sponsors/marcioreck) / [OpenCollective](https://opencollective.com/marcio-reck)
+SafeDep is a **zerocost marketing** open-source initiative. We rely on community audits to grow "The Shield".
+
+### How to Help
+- **Audit a Package**: Submit a PR to the [Hub](https://github.com/marcioreck/safedep/tree/main/hub).
+- **Give a ⭐**: Help us reach more developers.
+- **Report Bugs**: Help us improve the scanner.
+- **Become a Sponsor**: Support the infrastructure for deep behavioral analysis. 
+  - [GitHub Sponsors](https://github.com/sponsors/marcioreck)
+  - [OpenCollective](https://opencollective.com/marcio-reck)
+
 Developed for those who prioritize security.

@@ -12,6 +12,7 @@ from .scanner.npm_scanner import scan_npm_package
 from .scanner.cargo_scanner import scan_cargo_package
 from .scanner.js_scanner import scan_js_code
 from .scanner.python_scanner import scan_python_manifest
+from .hub import get_audited_package
 import os
 
 console = Console()
@@ -70,6 +71,22 @@ def check(package_name, sandbox, ecosystem):
         else:
             console.print("[green]✓ No suspicious behavior detected in sandbox.[/green]")
         
+    # --- SafeDep Hub & Shield ---
+    console.print("\n[yellow]Checking SafeDep Hub...[/yellow]")
+    audited_info = get_audited_package(package_name, ecosystem=ecosystem)
+    
+    if audited_info:
+        console.print("🛡️ [bold green]SafeDep Shield: AUDITED & CLEAN[/bold green]")
+        console.print(f"[dim]Last Audit: {audited_info.get('last_audit', 'Unknown')}[/dim]")
+        console.print(f"[dim]Notes: {audited_info.get('notes', 'No notes available.')}[/dim]")
+        
+        # Security Badge Snippet
+        badge_url = f"https://img.shields.io/badge/SafeDep-Audited-green?logo=github"
+        console.print(f"\n[bold blue]Add this Security Badge to your README:[/bold blue]")
+        console.print(f"Markdown: `[![SafeDep Audited]({badge_url})](https://github.com/marcioreck/safedep)`")
+    else:
+        console.print("[dim]This package is not yet in the SafeDep Hub. Community audits are welcome![/dim]")
+
     console.print("\n[bold green]Analysis Complete.[/bold green]")
 
 @cli.command()
