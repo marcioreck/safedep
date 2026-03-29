@@ -37,15 +37,15 @@ SafeDep is configured to automatically publish to PyPI and create a GitHub Relea
 
 ### Triggering a Release
 1. Update the version in `pyproject.toml`:
-   ```toml
-   version = "0.1.2" # Update to the new version
-   ```
+```toml
+version = "0.1.2" # Update to the new version
+```
 2. Commit and push the change.
 3. Create and push a new tag:
-   ```bash
-   git tag v0.1.2
-   git push origin v0.1.2
-   ```
+```bash
+git tag v0.1.2
+git push origin v0.1.2
+```
 
 ### Required GitHub Secrets
 To make the automated release work, you must add the following secret to your GitHub repository:
